@@ -388,17 +388,24 @@ syntax on
 " Path declarations
 " -----------------
 
-let g:config_dir='~/.vim/'
+let g:vimdir='~/.vim/'
 
-execute 'set backupdir='.g:config_dir.'backup//'
-execute 'set directory='.g:config_dir.'swap//'
+" Create backup directory if not exists
+if empty(glob(vimdir . '/backup'))
+  if executable('curl')
+    execute 'silent !mkdir -p ' . vimdir . 'backup'
+  endif
+endif
+
+execute 'set backupdir='.g:vimdir.'backup//'
+execute 'set directory='.g:vimdir.'swap//'
 
 " Save undo trees in files
 set undofile
-execute 'set undodir='.g:config_dir.'undo//'
+execute 'set undodir='.g:vimdir.'undo//'
 
 " Session directory
-let g:sessions_dir=g:config_dir.'sessions/'
+let g:sessions_dir=g:vimdir.'sessions//'
 
 " path to your python
 let g:python3_host_prog='/usr/bin/python3'
