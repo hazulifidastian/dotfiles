@@ -30,9 +30,11 @@ endif
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:color = [['#7c6f64', '#303030', 'NONE', 'NONE']]
 let s:palette.normal.middle = s:color
-let s:palette.inactive.middle = s:color
 let s:palette.normal.left = s:color
 let s:palette.normal.right = s:color 
+let s:palette.insert.middle = s:color
+let s:palette.visual.middle = s:color
+let s:palette.inactive.middle = s:color
 let s:palette.inactive.left = s:color 
 let s:palette.inactive.right = s:color 
 

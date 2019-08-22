@@ -960,6 +960,7 @@ endif
 nnoremap <silent> <Leader>wl :call ToggleList("Location List", 'l')<Cr>
 nnoremap <silent> <Leader>wq :call ToggleList("Quickfix List", 'c')<Cr>
 
+
 " Nvim/Vim spesific mapping
 " '''''''''''''''''''''''''
 
