@@ -451,7 +451,7 @@ let g:gruvbox_invert_tabline=0
 let g:gruvbox_improved_warnings=1
 set background=dark
 
-colorscheme gruvbox
+colorscheme gruvbox 
 
 " Change cursor shape based on mode
 " ---------------------------------
@@ -983,6 +983,20 @@ nnoremap <Leader>k <C-w>k
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
+
+" Keyboard error
+" ''''''''''''''
+
+" Command
+nmap <Leader>/ <Esc>a;
+nmap <Leader>? <Esc>a:
+
+nmap <Leader>@ <Esc>a.
+nmap <Leader>^ <Esc>a>
+
+nmap <Leader>\ <Esc>a$
+nmap <Leader><bar> <Esc>a~
+nmap <Leader>, :
 
 
 

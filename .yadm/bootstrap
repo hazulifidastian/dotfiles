@@ -1,14 +1,73 @@
 #!/bin/bash
 
+# Shell
+# =====
+
+# Install fish, omf, spacefish
+
+# Shell Themes
+sudo apt install -y dconf-cli uuid-runtime
+bash
+export TERMINAL='io.elementary.terminal'
+bash -c  "$(wget -qO- https://git.io/vQgMr)"
+
+
 # Vim/Nvim
 # ========
 
+# Install vim, nvim
+add-apt-repository ppa:neovim-ppa/unstable
+add-apt-repository ppa:neovim-ppa/stable
+apt update
+apt install -y neovim
+
 if command -v vim >/dev/null 2>&1; then
   echo "Bootstraping Vim"
-  /usr/bin/vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
 if command -v nvim >/dev/null 2>&1; then
   echo "Bootstraping Nvim"
   nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
+
+
+# Snap
+# ====
+
+# Install snap
+
+
+# Docker
+# =====
+
+# Install docker
+snap install docker
+
+
+# Node 
+# ====
+
+# Install nodejs
+snap install node
+
+
+# Rust 
+# ====
+
+# Install rust
+# snap install docker
+
+
+# Sublime text 
+# ===========
+
+# Install sublime text
+snap install sublime-text
+
+
+# Visual Studio Code
+# ==================
+
+# Install visual studio code
+snap install code 

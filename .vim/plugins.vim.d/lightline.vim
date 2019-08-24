@@ -1,7 +1,7 @@
 let g:lightline = {
     \   'active': {
     \     'left':[ [ 'mode', 'paste' ],
-    \              [ 'gitbranch', 'readonly', 'relativepath', 'modified']
+    \              [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'tagbar']
     \     ],
     \     'right':[ ['lineinfo', 'percent', 'populatetab'],
     \               ['linter_errors', 'linter_warnings', 'cocstatus' ]
@@ -20,23 +20,18 @@ let g:lightline = {
     \   }
     \ }
 
-if has("gui_running")
-    let g:lightline.colorscheme = 'gruvbox'
-else
-    let g:lightline.colorscheme = 'gruvbox'
-endif
+let g:lightline.colorscheme = 'gruvbox'
 
 " Theme
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:color = [['#7c6f64', '#303030', 'NONE', 'NONE']]
-let s:palette.normal.middle = s:color
-let s:palette.normal.left = s:color
-let s:palette.normal.right = s:color 
-let s:palette.insert.middle = s:color
-let s:palette.visual.middle = s:color
-let s:palette.inactive.middle = s:color
-let s:palette.inactive.left = s:color 
-let s:palette.inactive.right = s:color 
+" let s:color = [['#7c6f64', '#303030', 'NONE', 'NONE']]
+" let s:palette.normal.middle = s:color
+" let s:palette.insert.middle = s:color
+" let s:palette.visual.middle = s:color
+" let s:inactive_color = [['#7c6f64', 'NONE', 'NONE', 'NONE']]
+" let s:palette.inactive.left = s:inactive_color
+" let s:palette.inactive.midle = s:inactive_color
+" let s:palette.inactive.right = s:inactive_color
 
 function! PopulateTab()
     return '⇄ '.tabpagenr().'/'.tabpagenr('$')
@@ -107,21 +102,22 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 
-" let g:lightline.separator = {
-"     \   'left': '', 'right': ''
-"     \ }
-"
-" let g:lightline.subseparator = {
-"     \   'left': '', 'right': ''
-"     \ }
 
 let g:lightline.separator = {
-    \   'left': '', 'right': ''
+    \   'left': '', 'right': ''
     \ }
 
 let g:lightline.subseparator = {
-    \   'left': '', 'right': ''
+    \   'left': '', 'right': ''
     \ }
+
+" let g:lightline.separator = {
+"     \   'left': '', 'right': ''
+"     \ }
+"
+" let g:lightline.subseparator = {
+"     \   'left': '', 'right': ''
+"     \ }
 
 if !has("gui_running")
     let g:lightline.tabline = {
