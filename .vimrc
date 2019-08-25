@@ -375,6 +375,12 @@ autocmd! User indentLine doautocmd indentLine Syntax
 " Dealing with swap files
 Plug 'gioele/vim-autoswap'
 
+" Send code to REPL
+Plug 'jpalardy/vim-slime'
+
+" Goyo
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 

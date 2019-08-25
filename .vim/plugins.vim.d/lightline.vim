@@ -103,21 +103,21 @@ let g:lightline.component_type = {
       \ }
 
 
-let g:lightline.separator = {
-    \   'left': '', 'right': ''
-    \ }
-
-let g:lightline.subseparator = {
-    \   'left': '', 'right': ''
-    \ }
-
 " let g:lightline.separator = {
-"     \   'left': '', 'right': ''
+"     \   'left': '', 'right': ''
 "     \ }
 "
 " let g:lightline.subseparator = {
-"     \   'left': '', 'right': ''
+"     \   'left': '', 'right': ''
 "     \ }
+
+let g:lightline.separator = {
+    \   'left': '', 'right': ''
+    \ }
+
+let g:lightline.subseparator = {
+    \   'left': '', 'right': ''
+    \ }
 
 if !has("gui_running")
     let g:lightline.tabline = {
