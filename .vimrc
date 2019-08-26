@@ -794,7 +794,8 @@ nnoremap <C-w>m <C-w>_<C-w><bar>
 nnoremap <expr> <C-w>q &buftype ==# 'terminal' ? ":bd!<Cr>" : "<C-w>q"
 
 " Override C-c
-imap <C-c> <Esc><C-c>
+inoremap <C-c> <Esc><C-c>
+" vnoremap <C-c> <Esc>
 
 " Fzf
 nnoremap <C-l> :Files<Cr>
@@ -947,16 +948,17 @@ nmap <Leader>t# :execute "tabn" . g:lasttab<Cr>
 " '
 
 " Open nvim config folder, and search for files
-nnoremap <Leader>vc :tabnew<Cr>:lcd ~/.vim/plugins.vim.d<Cr>:Files<Cr>
-nnoremap <silent><Leader>vC :source $MYVIMRC<Cr>
+nnoremap <silent><Leader>vec :tabnew<Cr>:e ~/.vimrc<Cr>
+nnoremap <Leader>vfc :tabnew<Cr>:lcd ~/.vim/plugins.vim.d<Cr>:Files<Cr>
+nnoremap <silent><Leader>vlc :source $MYVIMRC<Cr>
 
 " Save and load session
 if has('gui_running')
-    nnoremap <Leader>vs :mksession! ~/.vim/sessions/gui.vim "SaveSession
-    nnoremap <Leader>vS :source ~/.vim/sessions/gui.vim "LoadGUISession
+    nnoremap <Leader>vss :mksession! ~/.vim/sessions/gui.vim "SaveSession
+    nnoremap <Leader>vls :source ~/.vim/sessions/gui.vim "LoadGUISession
 else
-    nnoremap <Leader>vs :mksession! ~/.vim/sessions/terminal.vim "SaveTerminalSession
-    nnoremap <Leader>vS :source ~/.vim/sessions/terminal.vim "LoadTerminalSession
+    nnoremap <Leader>vss :mksession! ~/.vim/sessions/terminal.vim "SaveTerminalSession
+    nnoremap <Leader>vls :source ~/.vim/sessions/terminal.vim "LoadTerminalSession
 endif
 
 " W

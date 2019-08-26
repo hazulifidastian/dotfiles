@@ -1,7 +1,7 @@
 let g:coc_user_config = {
     \ "coc.preferences.formatOnSaveFiletypes": ["css", "html", "htmldjango"],
     \ "suggest.enablePreview": 1,
-    \ "snippets.ultisnips.directories": ["~/Projects/environment/dotfiles/nvim/ultisnips"],
+    \ "snippets.ultisnips.directories": ["~/.vim/ultisnips"],
     \ "snippets.extends": {
     \     "htmldjango": ["htmldjango", "html", "css", "javascript"]
     \ },
