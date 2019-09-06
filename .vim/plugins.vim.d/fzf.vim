@@ -89,9 +89,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-highlight default fzf1 ctermfg=161 ctermbg=238 guifg=#E12672 guibg=#303030
-highlight default fzf2 ctermfg=151 ctermbg=238 guifg=#BCDDBD guibg=#303030
-highlight default fzf3 ctermfg=252 ctermbg=238 guifg=#D9D9D9 guibg=#303030
+" highlight default fzf1 ctermfg=161 ctermbg=238 guifg=#E12672 guibg=#303030
+" highlight default fzf2 ctermfg=151 ctermbg=238 guifg=#BCDDBD guibg=#303030
+" highlight default fzf3 ctermfg=252 ctermbg=238 guifg=#D9D9D9 guibg=#303030
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',

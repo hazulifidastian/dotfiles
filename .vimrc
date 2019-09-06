@@ -430,14 +430,6 @@ filetype on
 filetype plugin indent on
 
 
-" True colors setting
-" -------------------
-
-set termguicolors
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-
-
 " Colorscheme
 " -----------
 
@@ -445,19 +437,18 @@ let g:gruvbox_bold=1
 let g:gruvbox_underline=1
 let g:gruvbox_undercurl=1
 let g:gruvbox_termcolors=256
-let g:gruvbox_contrast_dark="medium"
-let g:gruvbox_contrast_light="medium"
-let g:gruvbox_sign_column='dark0'
-let g:gruvbox_color_column="dark0"
-let g:gruvbox_vert_split="dark0"
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_light="soft"
+let g:gruvbox_sign_column='dark0_soft'
+let g:gruvbox_color_column='dark0_soft'  "Ruler
+let g:gruvbox_vert_split='dark0_soft'
 let g:gruvbox_invert_selection=0
 let g:gruvbox_invert_signs=0
 let g:gruvbox_invert_indent_guides=0
 let g:gruvbox_invert_tabline=0
 let g:gruvbox_improved_warnings=1
 set background=dark
-
-colorscheme gruvbox 
+colorscheme gruvbox
 
 " Change cursor shape based on mode
 " ---------------------------------
@@ -473,28 +464,27 @@ let &t_EI="\<Esc>[2 q"
 if !has('nvim')
     set ttymouse=xterm2
 
-    set termguicolors
     set t_Co=256
 
-    " gruvbox colors
+    " gruvbox soft colors
     let g:terminal_ansi_colors=[
-	\ '#282828',
-	\ '#cc241d',
-	\ '#98971a',
-	\ '#d79921',
-	\ '#458588',
-	\ '#b16286',
-	\ '#689d6a',
-	\ '#a89984',
-	\ '#928374',
-	\ '#fb4934',
-	\ '#b8bb26',
-	\ '#fabd2f',
-	\ '#83a598',
-	\ '#d3869b',
-	\ '#8ec07c',
-	\ '#ebdbb2'
-	\ ]
+    \ '#32302f',
+    \ '#cc241d',
+    \ '#98971a',
+    \ '#d79921',
+    \ '#458588',
+    \ '#b16286',
+    \ '#689d6a',
+    \ '#a89984',
+    \ '#928374',
+    \ '#fb4934',
+    \ '#b8bb26',
+    \ '#fabd2f',
+    \ '#83a598',
+    \ '#d3869b',
+    \ '#8ec07c',
+    \ '#ebdbb2'
+    \ ]
 
     " alternative colors
     " let g:terminal_ansi_colors=[
@@ -572,7 +562,7 @@ set hidden
 set noshowmode
 
 " Fold related
-set foldlevelstart=0 " Start with all folds closed
+set foldlevelstart=1 " Start with some folds closed
 
 " Set foldtext
 set foldtext=FoldText()
@@ -602,7 +592,7 @@ set noequalalways
 set title titlestring=
 
 " Hide tilde on blank line
-hi NonText guifg=bg
+hi EndOfBuffer ctermfg=bg
 
 " Colum coloring
 set colorcolumn=88
@@ -724,6 +714,8 @@ map <SPACE> <Leader>
 " Special Char
 " ------------------
 
+nnoremap <F1> :h<Space>
+
 " Indent without kill the selection in vmode
 vmap < <gv
 vmap > >gv
@@ -783,10 +775,14 @@ vmap <Leader><C-m> :S//g<LEFT><LEFT>
 " Control
 " -------
 
+" Enable Ale & Coc
+nnoremap <Leader>sad :ALEDisable<Cr>:CocDisable<Cr>
+nnoremap <Leader>sae :ALEEnable<Cr>:CocStart<Cr>
+
 " Save file
-nnoremap <C-s> :update<Cr>
-inoremap <C-s> <Esc>:update<Cr>
-vnoremap <C-s> <Esc>:update<Cr>
+nnoremap <C-s> :w<Cr>
+inoremap <C-s> <Esc>:w<Cr>
+vnoremap <C-s> <Esc>:w<Cr>
 
 " maximize
 nnoremap <C-w>m <C-w>_<C-w><bar>
@@ -922,6 +918,8 @@ vnoremap <Leader>p "_dP
 " R
 " '
 
+nmap <leader>rp <Plug>(FerretAck)
+nmap <leader>rP <Plug>(FerretAcks)
 
 " S
 " '
@@ -1081,6 +1079,10 @@ autocmd vimrc BufNewFile,BufRead *.vimlocal set filetype=vim
 " css
 autocmd vimrc BufNewFile,BufRead *.css set filetype=css
 
+
+" Autoreload vim
+autocmd BufWritePost .vimrc source $MYVIMRC 
+autocmd BufWritePost .vimlocal source .vimlocal 
 
 
 " Miscellaneous
