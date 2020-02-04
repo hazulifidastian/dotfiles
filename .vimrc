@@ -68,7 +68,7 @@ function! Buflist()
     for i in split(bufnames, "\n")
         let buf = split(i, '"' )
         call add(list, buf[-2])
-|   endfor
+    endfor
     return list
 endfunction
 
@@ -278,9 +278,6 @@ Plug 'tpope/vim-unimpaired'
 " Dispatch
 Plug 'tpope/vim-dispatch'
 
-" Highlight briefly every yank text
-Plug 'machakann/vim-highlightedyank'
-
 " Swap arguments in parenthesis
 Plug 'machakann/vim-swap'
 
@@ -297,7 +294,6 @@ Plug 'honza/vim-snippets'
 Plug 'Rykka/riv.vim', {'for': 'rst'}
 
 " Python & django
-Plug 'davidhalter/jedi-vim', {'for': 'py'}
 Plug 'tweekmonster/django-plus.vim'
 
 " PHP
@@ -315,26 +311,29 @@ Plug 'tiagofumo/dart-vim-flutter-layout', {'for': 'dart'}
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Quality tools 
+" Quality tools
 Plug 'w0rp/ale'
 
 " Outliner
-Plug 'majutsushi/tagbar' 
+Plug 'majutsushi/tagbar'
 
 " Collections of filetypeplugins
 Plug 'sheerun/vim-polyglot'
 
 " Nerdtree + modifications file explorer
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
-augroup nerd_loader
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-  autocmd BufEnter,BufNew *
-        \  if isdirectory(expand('<amatch>'))
-        \|   call plug#load('nerdtree')
-        \|   execute 'autocmd! nerd_loader'
-        \| endif
-augroup END
+" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
+" augroup nerd_loader
+"   autocmd!
+"   autocmd VimEnter * silent! autocmd! FileExplorer
+"   autocmd BufEnter,BufNew *
+"         \  if isdirectory(expand('<amatch>'))
+"         \|   call plug#load('nerdtree')
+"         \|   execute 'autocmd! nerd_loader'
+"         \| endif
+" augroup END
+
+" Dirvish, explorer
+Plug 'justinmk/vim-dirvish'
 
 " Status bar
 Plug 'itchyny/lightline.vim'
@@ -367,6 +366,8 @@ Plug 'AndrewRadev/splitjoin.vim', {'for': ['php', 'go']}
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
+Plug 'ayu-theme/ayu-vim'
 
 " Indent line
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
@@ -374,9 +375,6 @@ autocmd! User indentLine doautocmd indentLine Syntax
 
 " Dealing with swap files
 Plug 'gioele/vim-autoswap'
-
-" Send code to REPL
-Plug 'jpalardy/vim-slime'
 
 " Goyo
 Plug 'junegunn/goyo.vim'
@@ -433,22 +431,34 @@ filetype plugin indent on
 " Colorscheme
 " -----------
 
-let g:gruvbox_bold=1
-let g:gruvbox_underline=1
-let g:gruvbox_undercurl=1
-let g:gruvbox_termcolors=256
-let g:gruvbox_contrast_dark="soft"
-let g:gruvbox_contrast_light="soft"
-let g:gruvbox_sign_column='dark0_soft'
-let g:gruvbox_color_column='dark0_soft'  "Ruler
-let g:gruvbox_vert_split='dark0_soft'
-let g:gruvbox_invert_selection=0
-let g:gruvbox_invert_signs=0
-let g:gruvbox_invert_indent_guides=0
-let g:gruvbox_invert_tabline=0
-let g:gruvbox_improved_warnings=1
 set background=dark
-colorscheme gruvbox
+
+if &background ==# 'dark'
+    let g:gruvbox_bold=1
+    let g:gruvbox_underline=1
+    let g:gruvbox_undercurl=1
+    let g:gruvbox_termcolors=256
+    let g:gruvbox_contrast_dark="soft"
+    let g:gruvbox_contrast_light="soft"
+    let g:gruvbox_sign_column='dark0_soft'
+    let g:gruvbox_color_column='dark0_soft'  "Ruler
+    let g:gruvbox_vert_split='dark0_soft'
+    let g:gruvbox_invert_selection=0
+    let g:gruvbox_invert_signs=0
+    let g:gruvbox_invert_indent_guides=0
+    let g:gruvbox_invert_tabline=0
+    let g:gruvbox_improved_warnings=1
+    colorscheme gruvbox
+
+    " Hide tilde on blank line
+    hi EndOfBuffer ctermfg=bg
+else
+    " colorscheme solarized8_flat
+    set termguicolors
+
+    let ayucolor="light"
+    colorscheme ayu
+endif
 
 " Change cursor shape based on mode
 " ---------------------------------
@@ -486,25 +496,6 @@ if !has('nvim')
     \ '#ebdbb2'
     \ ]
 
-    " alternative colors
-    " let g:terminal_ansi_colors=[
-    " \ '#4d5057',
-    " \ '#cb817c',
-    " \ '#83ac75',
-    " \ '#f6e5af',
-    " \ '#83afe5',
-    " \ '#9a93e1',
-    " \ '#80c1ca',
-    " \ '#c5c8c6',
-    " \ '#4d5057',
-    " \ '#da4e4a',
-    " \ '#9dcf8d',
-    " \ '#ff9a54',
-    " \ '#83afe5',
-    " \ '#d08ec2',
-    " \ '#85def4',
-    " \ '#c5c8c6'
-    " \ ]
     set t_AB=^[[48;5;%dm
     set t_AF=^[[38;5;%dm
 endif
@@ -514,7 +505,7 @@ if has('nvim')
 
     " Show the substitution LIVE
     set inccommand=nosplit
-    
+
     autocmd TermOpen * setlocal nornu nonu
 endif
 
@@ -583,7 +574,7 @@ set splitbelow splitright
 set shortmess+=c
 
 " hide tabline (tabline had limited capability)
-set showtabline=0
+set showtabline=1
 
 " No resizing if any window closed
 set noequalalways
@@ -591,11 +582,8 @@ set noequalalways
 " Show fileinfo on terminal title
 set title titlestring=
 
-" Hide tilde on blank line
-hi EndOfBuffer ctermfg=bg
-
 " Colum coloring
-set colorcolumn=88
+" set colorcolumn=88
 
 set updatetime=300
 
@@ -603,7 +591,7 @@ set updatetime=300
 set signcolumn=yes
 
 " command height
-" set cmdheight=2
+set cmdheight=1
 
 
 " Swap setting
@@ -650,16 +638,6 @@ set wildignore+=*/elm-stuff/*
 set wildignore+=*/staticfiles/*
 set wildignore+=*.gch
 set wildignore+=*.o
-
-
-" Netrw config
-" ------------
-
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_winsize=25
 
 
 " Misc
@@ -714,8 +692,6 @@ map <SPACE> <Leader>
 " Special Char
 " ------------------
 
-nnoremap <F1> :h<Space>
-
 " Indent without kill the selection in vmode
 vmap < <gv
 vmap > >gv
@@ -732,15 +708,6 @@ vmap g# y?<C-r>"<Cr>
 
 " Word keys
 " ---------
-
-" Act like D and C
-nnoremap Y y$
-
-" Remap the annoying u in visual mode
-vmap u y
-
-" Change in next bracket
-nmap cinb cib
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -775,26 +742,21 @@ vmap <Leader><C-m> :S//g<LEFT><LEFT>
 " Control
 " -------
 
-" Enable Ale & Coc
-nnoremap <Leader>sad :ALEDisable<Cr>:CocDisable<Cr>
-nnoremap <Leader>sae :ALEEnable<Cr>:CocStart<Cr>
+" Open nvim config folder, and search for files
+nnoremap <silent><C-M-s> :tabnew<Cr>:e ~/.vimrc<Cr>
+nnoremap <silent><M-s> :tabnew<Cr>:lcd ~/.vim/plugins.vim.d<Cr>:Files<Cr>
 
 " Save file
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <Esc>:w<Cr>
 vnoremap <C-s> <Esc>:w<Cr>
 
-" maximize
-nnoremap <C-w>m <C-w>_<C-w><bar>
-
 nnoremap <expr> <C-w>q &buftype ==# 'terminal' ? ":bd!<Cr>" : "<C-w>q"
+nnoremap <C-w>Q :qa<Cr>
 
 " Override C-c
 inoremap <C-c> <Esc><C-c>
 " vnoremap <C-c> <Esc>
-
-" Fzf
-nnoremap <C-l> :Files<Cr>
 
 
 " Move Text Shortcut
@@ -807,12 +769,11 @@ nmap <C-S-Down> ]e
 vmap <C-S-Up> [egv
 vmap <C-S-Down> ]egv
 
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
 " TAB
 " ---
-
-" Autocompletion with tab
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " Leader
@@ -850,6 +811,7 @@ nnoremap <Leader>af :ALEFirst<Cr>
 nnoremap <Leader>an :ALENextWrap<Cr>
 nnoremap <Leader>ap :ALEPreviousWrap<Cr>
 nnoremap <Leader>al :ALELast<Cr>
+nnoremap <Leader>aL :ALELint<Cr>
 
 " B
 " '
@@ -877,8 +839,8 @@ nnoremap <Leader>cw :call DeleteTrailingWS()<Cr>
 " E
 " '
 
-nnoremap <silent><Leader>e :NERDTreeToggle<Cr>
-nnoremap <silent><Leader>E :NERDTreeFind<Cr>
+" nnoremap <silent><Leader>e :NERDTreeToggle<Cr>
+" nnoremap <silent><Leader>E :NERDTreeFind<Cr>
 
 " F
 " '
@@ -927,12 +889,6 @@ nmap <leader>rP <Plug>(FerretAcks)
 " T
 " '
 
-" Tab
-nnoremap <Leader>tn :tabnew<Cr>
-nnoremap <Leader>tN :-tabnew<Cr>
-nnoremap <Leader>tc :tabc<Cr>
-nnoremap <Leader>tt :tabs<Cr>:tab
-
 " Switch to last-active tab
 if !exists('g:lasttab')
     let g:lasttab=1
@@ -944,11 +900,6 @@ nmap <Leader>t# :execute "tabn" . g:lasttab<Cr>
 
 " V
 " '
-
-" Open nvim config folder, and search for files
-nnoremap <silent><Leader>vec :tabnew<Cr>:e ~/.vimrc<Cr>
-nnoremap <Leader>vfc :tabnew<Cr>:lcd ~/.vim/plugins.vim.d<Cr>:Files<Cr>
-nnoremap <silent><Leader>vlc :source $MYVIMRC<Cr>
 
 " Save and load session
 if has('gui_running')
@@ -978,32 +929,17 @@ endif
 " Misc
 " ''''
 
-" Override Esc 
+" Override Esc
 tnoremap <Esc> <C-\><C-n>
 
 
 " Shortcut
 " --------
 
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>l <C-w>l
-
-" Keyboard error
-" ''''''''''''''
-
-" Command
-nmap <Leader>/ <Esc>a;
-nmap <Leader>? <Esc>a:
-
-nmap <Leader>@ <Esc>a.
-nmap <Leader>^ <Esc>a>
-
-nmap <Leader>\ <Esc>a$
-nmap <Leader><bar> <Esc>a~
-nmap <Leader>, :
-
+map <Left> :vertical resize -2<Cr>
+map <Right> :vertical resize +2<Cr>
+map <Up> :resize +2<Cr>
+map <Down> :resize -2<Cr>
 
 
 " Autocommand
@@ -1034,16 +970,6 @@ autocmd vimrc BufWrite *.php,*.js,*.jsx,*.vue,*.twig,*.html,*.sh,*.yaml,*.yml :c
 " Open images with feh
 autocmd vimrc BufEnter *.png,*.jpg,*gif silent! exec "! feh ".expand("%") | :bw
 
-" Auto wrap on quickfix
-" augroup quickfix
-    " autocmd!
-    " autocmd FileType qf setlocal wrap
-" augroup END
-
-" if has('gui_running')
-"     autocmd vimrc buftype terminal nmap <Esc> <C-w>N
-" endif
-
 autocmd FileType netrw setl bufhidden=wipe
 
 " Hide highlight search after exit command-line
@@ -1052,14 +978,6 @@ augroup vimrc-incsearch-highlight
     autocmd CmdlineEnter /,\? :set hlsearch
     autocmd CmdlineLeave /,\? :set nohlsearch
 augroup END
-
-" autocmd BufNewFile,BufRead Justfile set syntax=make
-
-" autocmd vimrc BufWritePre *.py call Isort()
-" function Isort()
-"     execute 'CocCommand python.sortImports'
-"     w
-" endfunction
 
 " Support comment on json
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -1079,10 +997,9 @@ autocmd vimrc BufNewFile,BufRead *.vimlocal set filetype=vim
 " css
 autocmd vimrc BufNewFile,BufRead *.css set filetype=css
 
-
 " Autoreload vim
-autocmd BufWritePost .vimrc source $MYVIMRC 
-autocmd BufWritePost .vimlocal source .vimlocal 
+" autocmd BufWritePost .vimrc source $MYVIMRC
+" autocmd BufWritePost .vimlocal source .vimlocal
 
 
 " Miscellaneous

@@ -54,6 +54,7 @@ let g:coc_global_extensions = [
     \ 'coc-python',
     \ 'coc-rls',
     \ 'coc-snippets',
+    \ 'coc-elixir',
 \ ]
 
 inoremap <silent><expr> <TAB>

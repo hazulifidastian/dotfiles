@@ -3,7 +3,7 @@ let g:lightline = {
     \     'left':[ [ 'mode', 'paste' ],
     \              [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'tagbar']
     \     ],
-    \     'right':[ ['lineinfo', 'percent', 'populatetab'],
+    \     'right':[ ['lineinfo', 'percent'],
     \               ['linter_errors', 'linter_warnings', 'cocstatus' ]
     \     ],
     \   },
@@ -15,12 +15,15 @@ let g:lightline = {
     \   'component_function': {
     \     'readonly': 'LightlineReadonly',
     \     'gitbranch': 'LightlineFugitive',
-    \     'populatetab': 'PopulateTab',
     \     'cocstatus': 'coc#status',
     \   }
     \ }
 
-let g:lightline.colorscheme = 'gruvbox'
+if &background ==# 'dark'
+    let g:lightline.colorscheme = 'gruvbox'
+else
+    let g:lightline.colorscheme = 'solarized'
+endif
 
 " Theme
 " let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
@@ -104,8 +107,12 @@ let g:lightline.component_type = {
 
 
 let g:lightline.separator = {
-    \   'left': '', 'right': ''
+    \   'left': "\ue0b4", 'right': "\ue0b6"
     \ }
+
+" let g:lightline.separator = {
+"     \   'left': '', 'right': ''
+"     \ }
 "
 " let g:lightline.subseparator = {
 "     \   'left': '', 'right': ''
@@ -117,6 +124,10 @@ let g:lightline.separator = {
 
 let g:lightline.subseparator = {
     \   'left': '', 'right': ''
+    \ }
+
+let g:lightline.tabline_separator = {
+    \   'left': "\ue0b4", 'right': "\ue0b6"
     \ }
 
 if !has("gui_running")

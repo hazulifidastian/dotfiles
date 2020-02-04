@@ -36,3 +36,4 @@ let NERDTreeMapPreviewSplit='sp'
 let NERDTreeMapOpenVSplit = 'v'
 let NERDTreeMapPreviewVSplit='vp'
 let g:NERDTreeMouseMode=1
+let g:NERDTreeNodeDelimeter="\u00a0"
