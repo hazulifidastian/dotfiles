@@ -4,7 +4,7 @@ let g:lightline = {
     \              [ 'gitbranch', 'readonly', 'relativepath', 'modified', 'tagbar']
     \     ],
     \     'right':[ ['lineinfo', 'percent'],
-    \               ['linter_errors', 'linter_warnings', 'cocstatus' ]
+    \               ['linter_checking', 'linter_errors', 'linter_warnings', 'cocstatus' ]
     \     ],
     \   },
     \   'component': {
@@ -14,10 +14,24 @@ let g:lightline = {
     \   },
     \   'component_function': {
     \     'readonly': 'LightlineReadonly',
-    \     'gitbranch': 'LightlineFugitive',
-    \     'cocstatus': 'coc#status',
+    \     'gitbranch': 'LightlineFugitiveHead',
+    \     'cocstatus': 'LightlineCocStatus',
     \   }
     \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
 
 if &background ==# 'dark'
     let g:lightline.colorscheme = 'gruvbox'
@@ -39,72 +53,29 @@ endif
 function! PopulateTab()
     return '⇄ '.tabpagenr().'/'.tabpagenr('$')
 endfunction
-" function! PopulateTab()
-"     let i = 1
-"     let tablist = ''
-"     while i <= tabpagenr('$')
-"         if i == tabpagenr()
-"             let tablist .= '#'.i.' '
-"         else
-"             let tablist .= i.' '
-"         endif
-"         let i = i + 1
-"     endwhile
-"     return '⇄ '.tablist
-" endfunction
 
 function! LightlineReadonly()
     return &readonly ? '' : ''
 endfunction
 
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
+let g:minwidth = 120
 
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-function! LightlineFugitive()
-    if exists('*fugitive#head')
-        let branch = fugitive#head()
-        return branch !=# '' ? ''.branch : ''
+function! LightlineFugitiveHead() abort
+    if (winwidth(0) > g:minwidth)
+        if exists('*FugitiveHead')
+            let branch = FugitiveHead()
+            return branch !=# '' ? '⽊ '.branch : ''
+        endif
     endif
     return ''
 endfunction
 
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
+function! LightlineCocStatus() abort
+    if (winwidth(0) > g:minwidth)
+        return coc#status()
+    endif
+    return ''
 endfunction
-
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-
-let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
-      \ }
-
 
 let g:lightline.separator = {
     \   'left': "\ue0b4", 'right': "\ue0b6"

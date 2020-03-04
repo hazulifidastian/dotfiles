@@ -295,6 +295,7 @@ Plug 'Rykka/riv.vim', {'for': 'rst'}
 
 " Python & django
 Plug 'tweekmonster/django-plus.vim'
+Plug 'mgedmin/python-imports.vim'
 
 " PHP
 Plug 'captbaritone/better-indent-support-for-php-with-html'
@@ -366,7 +367,6 @@ Plug 'AndrewRadev/splitjoin.vim', {'for': ['php', 'go']}
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-solarized8'
 Plug 'ayu-theme/ayu-vim'
 
 " Indent line
@@ -378,6 +378,9 @@ Plug 'gioele/vim-autoswap'
 
 " Goyo
 Plug 'junegunn/goyo.vim'
+
+" Generate tags
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -450,7 +453,7 @@ if &background ==# 'dark'
     let g:gruvbox_improved_warnings=1
     colorscheme gruvbox
 
-    " Hide tilde on blank line
+    " Hide tilde on blank line for gruvbox
     hi EndOfBuffer ctermfg=bg
 else
     " colorscheme solarized8_flat
@@ -772,6 +775,8 @@ vmap <C-S-Down> ]egv
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
+imap <C-J> <Esc>o
+
 " TAB
 " ---
 
@@ -940,6 +945,8 @@ map <Left> :vertical resize -2<Cr>
 map <Right> :vertical resize +2<Cr>
 map <Up> :resize +2<Cr>
 map <Down> :resize -2<Cr>
+
+nmap <C-L> :Files<Cr>
 
 
 " Autocommand

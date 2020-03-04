@@ -1,10 +1,7 @@
 let g:coc_user_config = {
-    \ "coc.preferences.formatOnSaveFiletypes": ["css", "html", "htmldjango"],
+    \ "coc.preferences.formatOnSaveFiletypes": ["css", "html"],
     \ "suggest.enablePreview": 1,
-    \ "snippets.ultisnips.directories": ["~/.vim/ultisnips"],
-    \ "snippets.extends": {
-    \     "htmldjango": ["htmldjango", "html", "css", "javascript"]
-    \ },
+    \ "suggest.noselect": 1,
     \ "diagnostic.displayByAle": 1,
     \ "diagnostic.checkCurrentLine": 1,
     \ "diagnostic.refreshOnInsertMode": 1,
@@ -27,6 +24,10 @@ let g:coc_user_config = {
     \        }
     \    }
     \ },
+    \ "snippets.ultisnips.directories": ["~/.vim/ultisnips"],
+    \ "snippets.extends": {
+    \     "htmldjango": ["htmldjango", "html", "css", "javascript"]
+    \ },
     \ "python.jediEnabled": 0,
     \ "python.linting.flake8Enabled": 1,
     \ "python.linting.flake8Args": ["--ignore=E116,E501,E265,W503", "--max-line-length=88"],
@@ -39,7 +40,7 @@ let g:coc_user_config = {
     \ ],
     \ "python.linting.mypyEnabled": 1,
     \ "python.linting.mypyArgs": ["--ignore-missing-imports", "--follow-imports=silent"],
-    \ "python.formatting.provider": "black"
+    \ "python.formatting.provider": "black",
     \ }
 
 let g:coc_global_extensions = [
@@ -73,7 +74,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" https://github.com/neoclide/coc.nvim/issues/262#issuecomment-447140117
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y><CR>" : "\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
