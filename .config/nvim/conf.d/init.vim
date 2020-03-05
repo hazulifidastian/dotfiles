@@ -4,14 +4,6 @@ let config_dir =  '~/.config/nvim'
 let plugged_dir = config_dir . '/plugged'
 let autoload_dir = config_dir . '/autoload'
 
-if empty(glob(autoload_dir . '/plug.vim'))
-  if executable('curl')
-    execute 'silent !curl -fLo ' . autoload_dir . '/plug.vim --create-dirs ' .
-          \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
-endif
-
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/plugins.vim'
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/gen.vim'
 

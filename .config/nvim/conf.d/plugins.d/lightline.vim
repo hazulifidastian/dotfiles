@@ -8,11 +8,11 @@ let g:lightline = {
     \     ],
     \   },
     \   'component': {
-    \     'tagbar': '%{tagbar#currenttag("%s", "", "f")}',
     \     'lineinfo': ' %2l:%-1v',
     \     'relativepath': '%<%f',
     \   },
     \   'component_function': {
+    \     'tagbar': 'LightlineTagbar',
     \     'readonly': 'LightlineReadonly',
     \     'gitbranch': 'LightlineFugitiveHead',
     \     'cocstatus': 'LightlineCocStatus',
@@ -52,6 +52,10 @@ endif
 
 function! PopulateTab()
     return '⇄ '.tabpagenr().'/'.tabpagenr('$')
+endfunction
+
+function! LightlineTagbar() abort
+    return tagbar#currenttag("%s", "", "f")
 endfunction
 
 function! LightlineReadonly()
