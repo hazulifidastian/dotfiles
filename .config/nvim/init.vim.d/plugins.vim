@@ -2,4 +2,4 @@ let general_ft = ['html', 'css', 'javascript', 'htmldjango', 'typescript', 'type
     \ 'python', 'php', 'elixir', 'dart', 'rust',
     \ ]
 
-exe 'source ' . config_dir . '/conf.d/plug.vim'
+exe 'source ' . config_dir . '/init.vim.d/plug.vim'

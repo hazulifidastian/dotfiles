@@ -18,9 +18,7 @@ call plug#begin(plugged_dir)
     Plug 'sgur/vim-editorconfig'
 
     " Automatically add matching tag
-    Plug 'jiangmiao/auto-pairs', {'on': [
-        \ '<Plug>AutoPairsReturn'
-    \ ]}
+    Plug 'jiangmiao/auto-pairs'
 
     " Wrapper for git and display git diff in the left gutter
     Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify'
@@ -45,11 +43,7 @@ call plug#begin(plugged_dir)
     \ ]}
 
     " Easily search, substitute and abbreviate multiple version of words
-    Plug 'tpope/vim-abolish', {'on': [
-        \ '<Plug>(abolish-coerce)',
-        \ '<Plug>(abolish-coerce)',
-        \ '<plug>(abolish-coerce-word)'
-    \ ]}
+    Plug 'tpope/vim-abolish'
 
     " The . command can repeat whatever you want!
     " http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
@@ -210,6 +204,8 @@ call plug#begin(plugged_dir)
 
     " Allow multisearch in current directory / multi replace as well
     Plug 'wincent/ferret', {'on': [
+        \ '<Plug>(FerretAck)',
+        \ '<Plug>(FerretAcks)',
         \ 'Ack',
         \ 'Acks',
         \ 'Ack!',

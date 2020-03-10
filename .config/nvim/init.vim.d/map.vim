@@ -53,7 +53,7 @@ vmap <Leader><C-m> :S//g<LEFT><LEFT>
 " Ctrl/Alt "
 
 " Open nvim config folder, and search for files
-nnoremap <silent><M-s> :tabnew<Cr>:lcd ~/.config/nvim/conf.d<Cr>:Files<Cr>
+nnoremap <silent><M-s> :tabnew<Cr>:lcd ~/.config/nvim/init.vim.d<Cr>:Files<Cr>
 
 " Save file
 nnoremap <C-s> :w<Cr>
@@ -149,6 +149,7 @@ endif
 autocmd! TabLeave * let g:lasttab_backup=g:lasttab | let g:lasttab=tabpagenr()
 autocmd! TabClosed * let g:lasttab=g:lasttab_backup
 nmap <Leader>t# :execute "tabn" . g:lasttab<Cr>
+nmap <Leader>tn :tabnew<Cr>
 
 " Save and load session
 if has('gui_running')

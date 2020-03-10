@@ -138,7 +138,7 @@ set cmdheight=1
 " Clipboard setting
 
 " The copy goes to the clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 " Better ex autocompletion
 set wildmenu
