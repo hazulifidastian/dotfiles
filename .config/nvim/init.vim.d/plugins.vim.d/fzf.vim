@@ -99,7 +99,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' 
   \ }
 
-let $FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow --exclude .git"
-" let $FZF_DEFAULT_COMMAND = "rg --files"
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --exclude .git --exclude .mypy_cache'
+" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --ignore-file .git"
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }

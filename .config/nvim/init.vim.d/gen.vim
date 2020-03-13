@@ -198,6 +198,7 @@ set wildignore+=*/vendor
 set wildignore+=*/env/*
 set wildignore+=*.pyc
 set wildignore+=*/__pycache__/
+set wildignore+=*/.mypy_cache
 set wildignore+=*/deps/* " Elixir deps
 set wildignore+=*/_build/* " Elixir builds
 set wildignore+=*/Pods/* " CocoaPods

@@ -26,21 +26,8 @@ call plug#begin(plugged_dir)
     " Display commits for project / file
     Plug 'junegunn/gv.vim', {'on': 'GV'}
 
-    " Surrounding with whatever you want (paranthesis, quotes...)
-    Plug 'tpope/vim-surround', {'on': [
-        \ '<Plug>SurroundRepeat',
-        \ '<Plug>Dsurround',
-        \ '<Plug>Csurround',
-        \ '<Plug>CSurround',
-        \ '<Plug>Yssurround',
-        \ '<Plug>YSsurround',
-        \ '<Plug>Ysurround',
-        \ '<Plug>YSurround',
-        \ '<Plug>VSurround',
-        \ '<Plug>VgSurround',
-        \ '<Plug>Isurround',
-        \ '<Plug>ISurround',
-    \ ]}
+    " Surrounding with whatever you want (parenthesis, quotes...)
+    Plug 'tpope/vim-surround'
 
     " Easily search, substitute and abbreviate multiple version of words
     Plug 'tpope/vim-abolish'

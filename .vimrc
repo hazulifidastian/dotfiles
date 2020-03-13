@@ -123,7 +123,7 @@ set title titlestring=
 set updatetime=300
 
 " Always show signcolumns
-set signcolumn=yes
+"set signcolumn=yes
 
 " command height
 set cmdheight=1

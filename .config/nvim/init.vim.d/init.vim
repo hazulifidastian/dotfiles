@@ -8,7 +8,7 @@ execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/plugins.vim'
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/gen.vim'
 
 " Specific Plugins Configurations
-let pluginsd_dir = '~/.config/nvim/init.vim.d/plugins.d/*.vim'
+let pluginsd_dir = '~/.config/nvim/init.vim.d/plugins.vim.d/*.vim'
 for config_file in split(glob(pluginsd_dir), '\n')
     execute 'source'  config_file
 endfor

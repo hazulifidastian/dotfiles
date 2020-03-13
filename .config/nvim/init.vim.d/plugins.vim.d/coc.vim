@@ -1,3 +1,4 @@
+let ultisnips_dir = config_dir . '/ultisnips'
 let g:coc_user_config = {
     \ "coc.preferences.formatOnSaveFiletypes": ["css", "html"],
     \ "suggest.enablePreview": 1,
@@ -24,7 +25,7 @@ let g:coc_user_config = {
     \        }
     \    }
     \ },
-    \ "snippets.ultisnips.directories": ["~/.vim/ultisnips"],
+    \ "snippets.ultisnips.directories": [ultisnips_dir],
     \ "snippets.extends": {
     \     "htmldjango": ["htmldjango", "html", "css", "javascript"]
     \ },
@@ -133,13 +134,13 @@ nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
 imap <C-l> <Plug>(coc-snippets-expand)
 
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+vmap <C-h> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_next = '<c-h>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = '<c-t>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
