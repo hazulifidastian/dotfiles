@@ -188,6 +188,8 @@ call plug#begin(plugged_dir)
         \ 'Filetypes',
     \ ]}
 
+    Plug 'pechorin/any-jump.vim', {'on': 'AnyJump'}
+
 
     " Allow multisearch in current directory / multi replace as well
     Plug 'wincent/ferret', {'on': [

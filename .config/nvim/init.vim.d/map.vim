@@ -53,7 +53,7 @@ vmap <Leader><C-m> :S//g<LEFT><LEFT>
 " Ctrl/Alt "
 
 " Open nvim config folder, and search for files
-nnoremap <silent><M-s> :tabnew<Cr>:lcd ~/.config/nvim/init.vim.d<Cr>:Files<Cr>
+nnoremap <silent><C-M-s> :tabnew<Cr>:lcd ~/.config/nvim/init.vim.d<Cr>:Files<Cr>
 
 " Save file
 nnoremap <C-s> :w<Cr>
