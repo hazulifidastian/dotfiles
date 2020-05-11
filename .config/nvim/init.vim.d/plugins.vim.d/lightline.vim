@@ -16,6 +16,9 @@ let g:lightline = {
     \     'readonly': 'LightlineReadonly',
     \     'gitbranch': 'LightlineFugitiveHead',
     \     'cocstatus': 'LightlineCocStatus',
+    \   },
+    \  'enable': {
+    \     'tabline': 0
     \   }
     \ }
 

@@ -1,4 +1,4 @@
-let ultisnips_dir = config_dir . '/ultisnips'
+let ultisnips_dir = config_dir . 'ultisnips'
 let g:coc_user_config = {
     \ "coc.preferences.formatOnSaveFiletypes": ["css", "html"],
     \ "suggest.enablePreview": 1,

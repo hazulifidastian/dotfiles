@@ -150,6 +150,8 @@ autocmd! TabLeave * let g:lasttab_backup=g:lasttab | let g:lasttab=tabpagenr()
 autocmd! TabClosed * let g:lasttab=g:lasttab_backup
 nmap <Leader>t# :execute "tabn" . g:lasttab<Cr>
 nmap <Leader>tn :tabnew<Cr>
+nmap <Leader>tr :TabRename<Space>
+nmap <Leader>to :TabOpen<Space> 
 
 " Save and load session
 if has('gui_running')

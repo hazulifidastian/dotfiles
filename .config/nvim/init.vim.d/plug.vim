@@ -86,13 +86,13 @@ call plug#begin(plugged_dir)
     Plug 'machakann/vim-swap'
 
     " Match more stuff with % (html tag, LaTeX...)
-    Plug 'andymass/vim-matchup', {'for': general_ft}
+    Plug 'andymass/vim-matchup'
 
     " Rooter
     Plug 'airblade/vim-rooter'
 
     " Snippets, managed by coc-snippets
-    Plug 'honza/vim-snippets', {'for': general_ft}
+    Plug 'honza/vim-snippets'
 
     " reStructured text
     Plug 'Rykka/riv.vim', {'for': 'rst'}
@@ -100,6 +100,7 @@ call plug#begin(plugged_dir)
     " Python & django
     Plug 'tweekmonster/django-plus.vim', {'for': ['python', 'htmldjango']}
     Plug 'mgedmin/python-imports.vim', {'for': 'python'}
+    Plug 'python-rope/ropevim', {'for': 'python'}
 
     " PHP
     Plug 'captbaritone/better-indent-support-for-php-with-html', {'for': 'php'}
@@ -117,7 +118,7 @@ call plug#begin(plugged_dir)
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Quality tools
-    Plug 'w0rp/ale', {'for': general_ft}
+    Plug 'w0rp/ale'
 
     " Outliner
     Plug 'majutsushi/tagbar'
@@ -235,5 +236,8 @@ call plug#begin(plugged_dir)
 
     " Generate tags
     Plug 'ludovicchabant/vim-gutentags', {'for': ['php', 'python']}
+
+    " Tab
+    Plug 'gcmt/taboo.vim'
 
 call plug#end()

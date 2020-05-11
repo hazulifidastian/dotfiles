@@ -19,6 +19,8 @@ let g:ale_python_isort_options = '--force-single-line-imports'
 
 let g:ale_rust_rls_toolchain = 'nightly'
 
+let g:ale_elixir_elixir_ls_release = '/home/efha/Applications/elixir-ls/rel'
+
 let g:ale_linters = {
     \ 'python': ['flake8', 'pylint', 'mypy'],
     \ 'css': ['stylelint'],
@@ -26,7 +28,7 @@ let g:ale_linters = {
     \ 'htmldjango': ['htmlhint'],
     \ 'dart': ['language_server'],
     \ 'rust': ['rustc'],
-    \ 'elixir': ['credo'],
+    \ 'elixir': ['credo', 'elixir-ls'],
     \ }
 
 let g:ale_fixers = {

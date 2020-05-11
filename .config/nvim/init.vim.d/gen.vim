@@ -233,3 +233,6 @@ set path+=**
 
 " Repeat pattern after search with /<pattern>
 set incsearch
+
+" Python3 config
+let g:python3_host_prog = '/home/efha/.pyenv/shims/python3'
