@@ -56,11 +56,14 @@
   :recipe (:host github
            :repo "redguardtoo/evil-matchit"))
 ;; python
-(package! pipenv)
-(package! blacken)
-(package! pylint)
-(package! py-isort)
-(package! importmagic)
+(package! cython :disable t)
+(package! anaconda-mode :disable t)
+(package! conda :disable t)
+(package! nose :disable t)
+(package! traad)
+
+;; php
+(package! phpactor)
 
 ;; theme
 (package! berrys-theme)

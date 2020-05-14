@@ -24,14 +24,14 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
-(use-package! berrys-theme
-  :config
-
-  :config ;; for good measure and clarity
-  (setq-default cursor-type '(bar . 2))
-  (setq-default line-spacing 2))
+;; (use-package! berrys-theme
+;;   :config
+;;   (setq doom-theme 'doom-one)
+;;   :config ;; for good measure and clarity
+;;   (setq-default cursor-type '(bar . 2))
+;;   (setq-default line-spacing 2))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -60,22 +60,8 @@
 ;; they are implemented.
 
 ;; python
-(after! lsp
-  (setq lsp-pyls-configuration-sources ["flake8"]
-        lsp-pyls-plugins-pylint-enabled nil
-        lsp-pyls-plugins-pycodestyle-enabled nil
-        lsp-pyls-plugins-flake8-enabled t
-        lsp-ui-doc-enable t)
-
-  (setq lsp-python-ms-executable
-      "/home/efha/.config/coc/extensions/coc-python-data/languageServer.0.3.47"))
-
-(use-package! pipenv
-  :hook (python-mode . pipenv-mode)
-  :init
-  (setq
-   pipenv-projectile-after-switch-function
-   #'pipenv-projectile-after-switch-extended))
+(after! lsp-python-ms
+  (setq lsp-python-ms-python-executable-cmd "/home/efha/.config/coc/extensions/coc-python-data/languageServer.0.3.47"))
 
 ;; window
 (use-package! dimmer
@@ -102,3 +88,6 @@
 
 ;; ui:doom-dashboard
 (setq fancy-splash-image "~/Pictures/emacs-banner.png")
+
+;; projectile
+(setq projectile-project-search-path '("/home/efha/Projects/"))
