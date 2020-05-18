@@ -26,11 +26,11 @@
 (setq pipenv-with-projectile t)
 
 ;; flycheck
-(add-hook 'python-mode-hook
+(add-hook 'pipenv-mode-hook
           (lambda ()
-            (setq flycheck-disabled-checkers '(python-pylint python-mypy))
             (setq flycheck-checker 'python-flake8)
-            ;; (flycheck-add-next-checker 'python-flake8)
+            (setq flycheck-disabled-checkers '(python-pylint python-mypy))
+            (flycheck-add-next-checker 'python-flake8 '(warning . python-pylint) '(warning . python-mypy))
             (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change idle-buffer-switch))
             ;; (setq flycheck-python-flake8-executable "/home/efha/.pyenv/shims/flake8")
             (setq flycheck-flake8rc "/home/efha/Projects/sinta/setup.cfg")
