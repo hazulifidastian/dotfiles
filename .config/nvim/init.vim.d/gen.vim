@@ -235,4 +235,4 @@ set path+=**
 set incsearch
 
 " Python3 config
-let g:python3_host_prog = '/home/efha/.pyenv/shims/python3'
+let g:python3_host_prog = '/home/efha/.asdf/shims/python'
