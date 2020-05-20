@@ -8,9 +8,9 @@
 (setq user-full-name "Hazuli Fidastian"
       user-mail-address "hazulifidastian@gmail.com")
 
-(setq doom-font (font-spec :family "M+ 2m" :size 14)
-  doom-variable-pitch-font (font-spec :family "M+ 2m" :size 14)
-  doom-big-font (font-spec :family "M+ 2m" :size 20))
+(setq doom-font (font-spec :family "D2Coding" :size 15)
+  doom-variable-pitch-font (font-spec :family "D2Coding" :size 15)
+  doom-big-font (font-spec :family "D2Coding" :size 20))
 
 ;; best themes:
 ;; doom-dark+, doom-city-lights, doom-ephemeral

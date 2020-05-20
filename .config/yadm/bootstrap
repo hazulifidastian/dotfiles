@@ -42,14 +42,14 @@ fi
 # =====
 
 # Install docker
-snap install docker
+# snap install docker
 
 
 # Node 
 # ====
 
 # Install nodejs
-snap install node
+# snap install node
 
 
 # Rust 
@@ -63,11 +63,11 @@ snap install node
 # ===========
 
 # Install sublime text
-snap install sublime-text
+# snap install sublime-text
 
 
 # Visual Studio Code
 # ==================
 
 # Install visual studio code
-snap install code 
+# snap install code 
