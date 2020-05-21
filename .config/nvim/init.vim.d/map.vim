@@ -181,9 +181,9 @@ tnoremap <Esc> <C-\><C-n>
 
 " Shortcut "
 
-map <Left> :vertical resize -2<Cr>
-map <Right> :vertical resize +2<Cr>
-map <Up> :resize +2<Cr>
-map <Down> :resize -2<Cr>
+" map <Left> :vertical resize -2<Cr>
+" map <Right> :vertical resize +2<Cr>
+" map <Up> :resize +2<Cr>
+" map <Down> :resize -2<Cr>
 
 nmap <C-L> :Files<Cr>

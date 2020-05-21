@@ -44,6 +44,4 @@
                        (pyenv-mode "PE")))
             ))
 
-(push "*Help*" special-display-buffer-names)
-
 ;; (setq debug-on-error nil)

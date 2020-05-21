@@ -84,9 +84,9 @@ function! LightlineCocStatus() abort
     return ''
 endfunction
 
-let g:lightline.separator = {
-    \   'left': "\ue0b4", 'right': "\ue0b6"
-    \ }
+" let g:lightline.separator = {
+"     \   'left': "\ue0b4", 'right': "\ue0b6"
+"     \ }
 
 " let g:lightline.separator = {
 "     \   'left': '', 'right': ''
@@ -100,13 +100,13 @@ let g:lightline.separator = {
 "     \   'left': '', 'right': ''
 "     \ }
 
-let g:lightline.subseparator = {
-    \   'left': '', 'right': ''
-    \ }
-
-let g:lightline.tabline_separator = {
-    \   'left': "\ue0b4", 'right': "\ue0b6"
-    \ }
+" let g:lightline.subseparator = {
+"     \   'left': '', 'right': ''
+"     \ }
+"
+" let g:lightline.tabline_separator = {
+"     \   'left': "\ue0b4", 'right': "\ue0b6"
+"     \ }
 
 if !has("gui_running")
     let g:lightline.tabline = {
