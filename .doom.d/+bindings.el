@@ -2,3 +2,4 @@
 
 ;; comment or uncomment
 (global-set-key (kbd "C-/") 'comment-dwim)
+(global-set-key (kbd "M-q") 'execute-extended-command)

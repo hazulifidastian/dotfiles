@@ -37,7 +37,7 @@ let g:lightline.component_type = {
       \ }
 
 if &background ==# 'dark'
-    let g:lightline.colorscheme = 'gruvbox'
+    let g:lightline.colorscheme = 'Tomorrow_Night'
 else
     let g:lightline.colorscheme = 'solarized'
 endif

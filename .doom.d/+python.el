@@ -22,14 +22,14 @@
 (setq +python-jupyter-repl-args '("--simple-prompt"))
 
 ;; pipenv
-(setq pipenv-with-flycheck t)
-(setq pipenv-with-projectile t)
+(setq pipenv-with-flycheck nil)
+(setq pipenv-with-projectile nil)
 
 ;; flycheck
 (add-hook 'pipenv-mode-hook
           (lambda ()
             (setq flycheck-checker 'python-flake8)
-            (setq flycheck-disabled-checkers '(python-pylint python-mypy))
+            (setq flycheck-disabled-checkers '(python-mypy))
             (flycheck-add-next-checker 'python-flake8 '(warning . python-pylint) '(warning . python-mypy))
             (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change idle-buffer-switch))
             ;; (setq flycheck-python-flake8-executable "/home/efha/.pyenv/shims/flake8")
