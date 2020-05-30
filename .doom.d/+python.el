@@ -37,3 +37,6 @@
             ;; (setq flycheck-python-pylint-executable "/home/efha/.pyenv/shims/pylint")
             ;; (setq flycheck-python-mypy-executable "/home/efha/.pyenv/shims/mypy")
             ))
+
+;; temporary hack for traad
+(setq venv-location "/home/efha/.local/share/")

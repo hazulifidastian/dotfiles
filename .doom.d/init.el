@@ -34,13 +34,13 @@
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
-       ;;nav-flash         ; blink cursor line after big motions
+       ;; nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;pretty-code       ; ligatures or substitute text with pretty symbols
-       ;;tabs              ; an tab bar for Emacs
-       ;;treemacs          ; a project drawer, like neotree but cooler
+       ;; pretty-code       ; ligatures or substitute text with pretty symbols
+       ;; tabs              ; an tab bar for Emacs
+       treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -82,11 +82,12 @@
 
        :tools
        ;;ansible
-       ;; debugger          ; FIXME stepping through code, to help you add bugs
+       (debugger
+        +lsp)              ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
        editorconfig      ; let someone else argue about tabs vs spaces
-       ;;ein               ; tame Jupyter notebooks with emacs
+       ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
@@ -148,7 +149,8 @@
        ;;purescript        ; javascript, but functional
        (python            ; beautiful is better than ugly
         +lsp
-        +pyenv)
+        +pyenv
+        +poetry)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client

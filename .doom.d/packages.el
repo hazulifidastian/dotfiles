@@ -24,8 +24,6 @@
 ;; theme
 
 ;; window
-(package! dimmer)
-(package! beacon)
 (package! golden-ratio)
 
 ;; modeline

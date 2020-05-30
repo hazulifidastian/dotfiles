@@ -16,12 +16,10 @@
 ;; doom-dark+, doom-city-lights, doom-ephemeral
 ;; doom-gruvbox, doom-material, doom-nord-light,
 ;; doom-nord, doom-one-light, doom-one,
-;; doom-solarized-light, doom-spacegrey, doom-tomorrow-day,
-(setq doom-theme 'doom-solarized-light)
+;; doom-solarized-light/dark, doom-spacegrey, doom-tomorrow-day,
+(setq doom-theme 'doom-tomorrow-day)
 
 (setq org-directory "~/org/")
-
-(setq display-line-numbers-type t)
 
 (load! "+ui")
 (load! "+bindings")
@@ -31,4 +29,5 @@
 (load! "+elixir")
 (load! "+php")
 (load! "+rust")
+(load! "+dap")
 (load! "+etc")
