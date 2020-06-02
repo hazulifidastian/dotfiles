@@ -17,7 +17,7 @@
 ;; doom-gruvbox, doom-material, doom-nord-light,
 ;; doom-nord, doom-one-light, doom-one,
 ;; doom-solarized-light/dark, doom-spacegrey, doom-tomorrow-day,
-(setq doom-theme 'doom-tomorrow-day)
+(setq doom-theme 'doom-solarized-light)
 
 (setq org-directory "~/org/")
 
@@ -26,6 +26,7 @@
 (load! "+lsp")
 (load! "+org")
 (load! "+python")
+(load! "+js")
 (load! "+elixir")
 (load! "+php")
 (load! "+rust")

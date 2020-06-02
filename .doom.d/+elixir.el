@@ -9,7 +9,7 @@
    (make-lsp-client :new-connection
     (lsp-stdio-connection
         (expand-file-name
-          "~/Applications/elixir-ls/rel/language_server.sh"))
+          "/home/efha/Applications/elixir-ls/rel/language_server.sh"))
         :major-modes '(elixir-mode)
         :priority -1
         :server-id 'elixir-ls

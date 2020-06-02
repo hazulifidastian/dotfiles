@@ -15,3 +15,7 @@
 ;;         ;; fix for completing candidates not showing after “Enum.”:
 ;;         company-lsp-match-candidate-predicate #'company-lsp-match-candidate-prefix
 ;;         ))
+
+(after! lsp-ui
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-flycheck-enable t))

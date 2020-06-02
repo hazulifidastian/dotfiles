@@ -33,3 +33,9 @@
             ))
 
 ;; (setq debug-on-error nil)
+
+(defun fh-ansi-term ()
+  (interactive)
+  (ansi-term "/usr/bin/fish" "fh-ansi-term")
+  (term-line-mode)
+  (emojify-mode))
