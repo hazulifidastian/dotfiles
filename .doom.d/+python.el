@@ -26,17 +26,14 @@
 (setq pipenv-with-projectile nil)
 
 ;; flycheck
-(add-hook 'pipenv-mode-hook
+(add-hook 'python-mode-hook
           (lambda ()
             (setq flycheck-checker 'python-flake8)
             (setq flycheck-disabled-checkers '(python-mypy))
             (flycheck-add-next-checker 'python-flake8 '(warning . python-pylint) '(warning . python-mypy))
             (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change idle-buffer-switch))
-            ;; (setq flycheck-python-flake8-executable "/home/efha/.pyenv/shims/flake8")
-            (setq flycheck-flake8rc "/home/efha/Projects/sinta/setup.cfg")
-            ;; (setq flycheck-python-pylint-executable "/home/efha/.pyenv/shims/pylint")
-            ;; (setq flycheck-python-mypy-executable "/home/efha/.pyenv/shims/mypy")
             ))
 
 ;; temporary hack for traad
+;; TODO find alternative
 (setq venv-location "/home/efha/.local/share/")

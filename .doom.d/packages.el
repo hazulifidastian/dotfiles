@@ -30,8 +30,8 @@
 (package! delight)
 
 ;; ui
-(package! emacs-emojify
-  :recipe (:host github
-           :repo "iqbalansari/emacs-emojify"))
+;; (package! emacs-emojify
+;;   :recipe (:host github
+;;            :repo "iqbalansari/emacs-emojify"))
 
 (package! alchemist :disable t)

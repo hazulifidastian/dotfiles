@@ -26,9 +26,9 @@ phpenv rehash >/dev/null ^&1
 set COMPOSER_VENDOR $HOME/.config/composer/vendor/bin
 set PATH $COMPOSER_VENDOR $PATH
 
-# pyenv for emacs
-set PYENV_ASDF /home/efha/.asdf/plugins/python/pyenv/bin/pyenv
-set PATH $PYENV_ASDF $PATH
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
 # FZF
 set -g FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"

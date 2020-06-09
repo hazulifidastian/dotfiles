@@ -17,7 +17,7 @@
 ;; doom-gruvbox, doom-material, doom-nord-light,
 ;; doom-nord, doom-one-light, doom-one,
 ;; doom-solarized-light/dark, doom-spacegrey, doom-tomorrow-day,
-(setq doom-theme 'doom-solarized-light)
+(setq doom-theme 'doom-one)
 
 (setq org-directory "~/org/")
 
