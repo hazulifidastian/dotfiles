@@ -43,21 +43,21 @@ filetype plugin indent on
 set background=dark
 
 if &background ==# 'dark'
-    let g:gruvbox_bold=1
-    let g:gruvbox_underline=1
-    let g:gruvbox_undercurl=1
-    let g:gruvbox_termcolors=256
-    let g:gruvbox_contrast_dark="soft"
-    let g:gruvbox_contrast_light="soft"
-    let g:gruvbox_sign_column='dark0_soft'
-    let g:gruvbox_color_column='dark0_soft'  "Ruler
-    let g:gruvbox_vert_split='dark0_soft'
-    let g:gruvbox_invert_selection=0
-    let g:gruvbox_invert_signs=0
-    let g:gruvbox_invert_indent_guides=0
-    let g:gruvbox_invert_tabline=0
-    let g:gruvbox_improved_warnings=1
-    colorscheme gruvbox
+    " let g:gruvbox_bold=1
+    " let g:gruvbox_underline=1
+    " let g:gruvbox_undercurl=1
+    " let g:gruvbox_termcolors=256
+    " let g:gruvbox_contrast_dark="soft"
+    " let g:gruvbox_contrast_light="soft"
+    " let g:gruvbox_sign_column='dark0_soft'
+    " let g:gruvbox_color_column='dark0_soft'  "Ruler
+    " let g:gruvbox_vert_split='dark0_soft'
+    " let g:gruvbox_invert_selection=0
+    " let g:gruvbox_invert_signs=0
+    " let g:gruvbox_invert_indent_guides=0
+    " let g:gruvbox_invert_tabline=0
+    " let g:gruvbox_improved_warnings=1
+    colorscheme onedark
 
     " Hide tilde on blank line for gruvbox
     hi EndOfBuffer ctermfg=bg
@@ -141,7 +141,7 @@ set diffopt+=vertical
 set mouse=a
 
 " split below and right
-set splitbelow splitright
+" set splitbelow splitright
 
 " Shorten message
 set shortmess+=c

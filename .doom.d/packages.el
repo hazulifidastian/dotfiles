@@ -30,8 +30,14 @@
 (package! delight)
 
 ;; ui
-;; (package! emacs-emojify
-;;   :recipe (:host github
-;;            :repo "iqbalansari/emacs-emojify"))
+(package! emacs-emojify
+  :recipe (:host github
+           :repo "iqbalansari/emacs-emojify"))
 
+;; disable alchemist
 (package! alchemist :disable t)
+
+;; debugging
+(package! explain-pause-mode
+  :recipe (:host github
+           :repo "lastquestion/explain-pause-mode"))

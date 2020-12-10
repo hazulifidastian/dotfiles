@@ -102,4 +102,5 @@ let g:fzf_action = {
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --exclude .git --exclude .mypy_cache'
 " let $FZF_DEFAULT_COMMAND = "rg --files --hidden --ignore-file .git"
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)

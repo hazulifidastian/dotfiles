@@ -20,18 +20,6 @@
     '(bar matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info minor-modes checker input-method buffer-encoding lsp major-mode process vcs "  ")))
 
-;; delight, hide mode from modeline
-(add-hook 'python-mode-hook
-          (lambda ()
-            (delight '((python-mode "PY")))
-            ))
-
-(add-hook 'pyenv-mode-hook
-          (lambda ()
-            (delight '((pipenv-mode "PE")
-                       (pyenv-mode "PE")))
-            ))
-
 ;; (setq debug-on-error nil)
 
 (defun fh-ansi-term ()

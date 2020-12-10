@@ -49,11 +49,7 @@ vmap <expr> <Leader>M ":s/" . @/ . '//g<LEFT><LEFT>'
 nmap <Leader><C-m> :%S//g<LEFT><LEFT>
 vmap <Leader><C-m> :S//g<LEFT><LEFT>
 
-
 " Ctrl/Alt "
-
-" Open nvim config folder, and search for files
-nnoremap <silent><C-M-s> :tabnew<Cr>:lcd ~/.config/nvim/init.vim.d<Cr>:Files<Cr>
 
 " Save file
 nnoremap <C-s> :w<Cr>
@@ -166,6 +162,9 @@ endif
 nnoremap <silent> <Leader>wl :call ToggleList("Location List", 'l')<Cr>
 nnoremap <silent> <Leader>wq :call ToggleList("Quickfix List", 'c')<Cr>
 
+" Open nvim config folder, and search for files
+nnoremap <silent><Leader>fp :tabnew<Cr>:lcd ~/.config/nvim/init.vim.d<Cr>:Files<Cr>
+
 
 " Nvim spesific mapping "
 
@@ -186,4 +185,6 @@ tnoremap <Esc> <C-\><C-n>
 " map <Up> :resize +2<Cr>
 " map <Down> :resize -2<Cr>
 
-nmap <C-L> :Files<Cr>
+nmap <Space><Space> :Files<Cr>
+nmap <Space>, :Buffers<Cr>
+nnoremap <Leader>. :Files <C-R>=expand('%:h')<Cr><Cr>

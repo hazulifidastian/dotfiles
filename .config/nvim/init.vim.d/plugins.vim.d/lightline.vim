@@ -37,7 +37,7 @@ let g:lightline.component_type = {
       \ }
 
 if &background ==# 'dark'
-    let g:lightline.colorscheme = 'Tomorrow_Night'
+    let g:lightline.colorscheme = 'onedark'
 else
     let g:lightline.colorscheme = 'solarized'
 endif
@@ -71,7 +71,7 @@ function! LightlineFugitiveHead() abort
     if (winwidth(0) > g:minwidth)
         if exists('*FugitiveHead')
             let branch = FugitiveHead()
-            return branch !=# '' ? '⽊ '.branch : ''
+            return branch !=# '' ? '⎇  '.branch : ''
         endif
     endif
     return ''

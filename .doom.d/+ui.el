@@ -2,6 +2,7 @@
 
 ;; ui:doom-dashboard
 (setq fancy-splash-image "~/Pictures/emacs-banner.png")
+(setq +doom-dashboard-name "*EFHA*")
 
 ;; remember cursor position
 (save-place-mode 1)
@@ -52,5 +53,9 @@
           "*Python ::")
         ))
 
-;; maximize
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; tab-bar
+;; (set-face-background 'tab-bar "#e5e9f0")
+;; (set-face-background 'tab-bar-tab "#5d86b6")
+;; (set-face-foreground 'tab-bar-tab "white")
+;; (face-spec-set 'tab-bar-tab-inactive
+;;                '((t (:foreground "inherit" :background "#e5e9f0"))))

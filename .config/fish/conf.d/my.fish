@@ -31,6 +31,7 @@ set -Ux PYENV_ROOT $HOME/.pyenv
 set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
 # FZF
+set PATH ~/.fzf/bin $PATH
 set -g FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
 set -g FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
@@ -47,10 +48,11 @@ alias emacs '/usr/bin/env XLIB_SKIP_ARGB_VISUALS=1 emacs'
 abbr -a -g l ll
 abbr -a -g do docker
 abbr -a -g doco docker-compose
+abbr -a -g dodev docker-compose -f docker-compose-dev.yml
 abbr -a -g pipe pipenv
 abbr -a -g poe poetry
 abbr -a -g ma ./manage.py
-abbr -a -g yout youtube-dl
+abbr -a -g yt youtube-dl
 
 ## change directory
 abbr -a -g pro cd $PROJECTS

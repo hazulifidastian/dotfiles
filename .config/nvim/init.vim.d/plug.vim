@@ -165,32 +165,10 @@ call plug#begin(plugged_dir)
         \ 'dir': '~/.fzf',
         \ 'do': './install --all',
         \ }
-    Plug 'junegunn/fzf.vim', {'on': [
-        \ 'Files',
-        \ 'GFiles',
-        \ 'Buffers',
-        \ 'Colors',
-        \ 'Ag',
-        \ 'Rg',
-        \ 'Lines',
-        \ 'BLines',
-        \ 'Tags',
-        \ 'BTags',
-        \ 'Marks',
-        \ 'Windows',
-        \ 'Locate',
-        \ 'History',
-        \ 'Snippets',
-        \ 'Commits',
-        \ 'BCommits',
-        \ 'Commands',
-        \ 'Maps',
-        \ 'Helptags',
-        \ 'Filetypes',
-    \ ]}
+
+    Plug 'junegunn/fzf.vim'
 
     Plug 'pechorin/any-jump.vim', {'on': 'AnyJump'}
-
 
     " Allow multisearch in current directory / multi replace as well
     Plug 'wincent/ferret', {'on': [
@@ -223,6 +201,7 @@ call plug#begin(plugged_dir)
     " Themes
     Plug 'morhetz/gruvbox'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'joshdick/onedark.vim'
 
     " Indent line
     Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
@@ -239,5 +218,8 @@ call plug#begin(plugged_dir)
 
     " Tab
     Plug 'gcmt/taboo.vim'
+
+    " Golden ratio
+    Plug 'roman/golden-ratio'
 
 call plug#end()
